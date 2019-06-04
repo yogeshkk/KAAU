@@ -1,8 +1,9 @@
 package main
 
 import (
+	"net/http"
 	"reflect"
-	"k8s.io/client-go/tools/clientcmd/api"
+
 	"flag"
 	"fmt"
 	"log"
@@ -26,6 +27,11 @@ func main() {
 	flag.StringVar(&kubeconfig, "kubeconfig", kubeconfig, "kubeconfig file")
 	flag.Parse()
 
+	http.HandleFunc("/", sayHello)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+
 	// total resource quantities
 	//	var totalClaimedQuant resource.Quantity
 	//	maxClaimedQuant := resource.MustParse(maxClaims)
@@ -40,6 +46,7 @@ func main() {
 
 	// create the clientset
 	clientset, err := kubernetes.NewForConfig(config)
+	fmt.Println(reflect.TypeOf(clientset))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,12 +59,18 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Print("Name\t\t Status\n")
 	for _, v := range namespace.Items {
-		fmt.Printf("%s\n", v.Name)
+		fmt.Printf("%s\t\t  %s\n", v.Name, v.Status)
+		getpods(clientset, v.Name)
+		getsvc(clientset, v.Name)
+	}
 	//	getpods(api)
 
-	}
+	//	pods, err := clientset.CoreV1().Pods(v.Name).List(metav1.ListOptions{})
 
+	//	pods.
+	//
 	/*pvcs, err := api.PersistentVolumeClaims(ns).List(listOptions)
 	if err != nil {
 		log.Fatal(err)
@@ -65,7 +78,7 @@ func main() {
 	*/
 
 	//	printPVCs(pvcs)
-//	fmt.Println()
+	//	fmt.Println()
 
 	// watch future changes to PVCs
 	/*	watcher, err := clientset.CoreV1().PersistentVolumeClaims(ns).Watch(listOptions)
@@ -123,23 +136,41 @@ func main() {
 			)
 		}
 	*/
-
 }
 
-func getpods(api string) {
-	
-	//	pods, err := clientset.CoreV1().Pods(v.Name).List(metav1.ListOptions{})
-	
-	pods, err := api.Pods(v.Name).List(metav1.ListOptions{})
+func getpods(clnpod *kubernetes.Clientset, namespace string) {
+
+	//	listOptions := metav1.ListOptions{LabelSelector: label, FieldSelector: field}
+	pods, err := clnpod.CoreV1().Pods(namespace).List(metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
+	if len(pods.Items) == 0 {
+		fmt.Printf("No pods found in %s\n", namespace)
+	} else {
+		for _, p := range pods.Items {
+			fmt.Printf("%s\t %s\n", p.Name, p.Status.Phase)
+		}
 
-	for _, p := range pods.Items {
-		fmt.Printf("%s\n", p.Name)
+		fmt.Printf("There are %d pods in the %s\n", len(pods.Items), namespace)
 	}
-	fmt.Printf("There are %d pods in the %s\n", len(pods.Items), v.Name)
+}
+func getsvc(clnsvc *kubernetes.Clientset, namespace string) {
 
+	//	listOptions := metav1.ListOptions{LabelSelector: label, FieldSelector: field}
+	service, err := clnsvc.CoreV1().Services(namespace).List(metav1.ListOptions{})
+	if err != nil {
+		panic(err.Error())
+	}
+	if len(service.Items) == 0 {
+		fmt.Printf("No Service found in %s\n", namespace)
+	} else {
+		for _, s := range service.Items {
+			fmt.Printf("%s\t %s\n", s.Name, s.Spec.Type)
+		}
+
+		fmt.Printf("There are %d services in the %s\n", len(service.Items), namespace)
+	}
 }
 
 // printPVCs prints a list of PersistentVolumeClaim on console
@@ -161,4 +192,12 @@ func printPVCs(pvcs *v1.PersistentVolumeClaimList) {
 	fmt.Println("-----------------------------")
 	fmt.Printf("Total capacity claimed: %s\n", cap.String())
 	fmt.Println("-----------------------------")
+}
+
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	//	message := r.URL.Path
+	//	message = strings.TrimPrefix(message, "/")
+	//	message = "Hello " + message
+	//	w.Write([]byte(message))
+	http.ServeFile(w, r, "public"+r.URL.Path)
 }
