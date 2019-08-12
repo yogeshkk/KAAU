@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Welcome To KAAU </title>
+  <link rel="stylesheet" href="/web/css/index.css">
+</head>
+<body>
+    <div class="Index">
+    <h2>Hello {{ .UserName }}, You have logged in successfully. Use below to logout</h2>
+    <form method="POST" action="/logout">
+    <button type="submit">logout</button>
+  </form>
+</div> 
+<div>
+    <table >
+        <caption>Kubernetes Cluster Roles</caption>
+        <form method="GET" action="/viewclusterrole">
+          <td> <a href="/viewclusterrole"> <button type="button">View Roles</button> </a></td>
+          <td> <button type="submit">Update Existing Role</button> </td>
+          <td> <button type="submit">Create New Role</button> </td>
+          <td> <button type="submit">Delete Roles</button> </td>
+        </form>
+   </table> 
+
+   <table >
+      <caption>Kubernetes Roles</caption>
+      <form method="POST" action="/viewrole">
+        <td> <a href="/viewrole?namespace=default"> <button type="button">View Roles</button> </a></td>
+        <td> <button type="submit">Update Existing Role</button> </td>
+        <td> <button type="submit">Create New Role</button> </td>
+        <td> <button type="submit">Delete Roles</button> </td>
+      </form>
+ </table> 
+</div> 

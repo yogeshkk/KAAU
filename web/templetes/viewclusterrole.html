@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/web/css/index.css">
+</head>
+<body>
+    <div class="Index">
+    <h2>Hello {{ .UserName }}, You have logged in successfully. Use below to logout</h2>
+    <form method="POST" action="/logout">
+    <button type="submit">logout</button>
+  </form>
+
+
+    
+    <table border="1">
+
+      {{range .ClusterRole }}
+      <tr> <td>{{ .Name }}</td></tr>
+      {{end}}
+    </table> 
+  </ul>
+</div>  

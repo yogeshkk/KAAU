@@ -1,0 +1,22 @@
+* {
+
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-weight:  300; 
+    margin:  0; 
+  }
+  
+.container {
+      display: flex;
+      flex-direction: wrap;
+    }  
+    
+.table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      overflow-x: auto;
+      width:100%
+    }
+.th, td {
+      padding: 5px;
+      text-align: left;
+    }
