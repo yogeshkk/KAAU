@@ -38,4 +38,20 @@ Twitter https://twitter.com/yogeshkunjir
 LinkedIn https://www.linkedin.com/in/yogeshkunjir/
 
 Login Screen
+
 ![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
+
+Home Page
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Home_Page.png)
+
+
+Service Account
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Service_Account.png)
+
+
+Role Page
+![Home Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Roles.png)
+
+
+Role Binding
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
