@@ -38,4 +38,4 @@ Twitter https://twitter.com/yogeshkunjir
 LinkedIn https://www.linkedin.com/in/yogeshkunjir/
 
 Login Screen
-[[https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/login_page.png|alt=login_page]]
+![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
