@@ -35,17 +35,16 @@
             </div>
         </div>
         <div class="containt">
-            <h1>Project KAAU. </h1>
-            <h2>Kubernetes Authentication Authorisation Utility</h2>
-            
-            <p>This is a Hobby Project yet not completed. This project aims to provide a management utility to Authorisation and Authentication for Kubernetes from a simple UI</p>
-            <p>Read bit about RBAC <a href="https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0">On Medium</a></p>
-            <p>Status of Project. Currently, it can Authentication via web. you can see password hard coded in project ;-) It can connect to Kubernetes via kubernetes client.go library It can Get roles and cluster roles and show in UI. </p>
-            <p>NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use in Minikube also. You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks.</p>
-            <p>Twitter <a href="https://twitter.com/yogeshkunjir">https://twitter.com/yogeshkunjir</a> LinkedIn <a href="https://www.linkedin.com/in/yogeshkunjir/">https://www.linkedin.com/in/yogeshkunjir/</a> </p>
-
+         <button class="ActionButton">Create</button><button class="ActionButton">Update</button><button class="ActionButton">Delete</button>  
+            <div class="table-div">
+                <table class="role-table">
+                    <tr><th></th><th>Role Name</th><th>Rules</th></tr>
+                    {{range .Roles }}
+                    <tr><td><input type="radio" name="roles" value="{{ .Name }}"></td><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Rule}}</pre></td></tr>
+                    {{end}}
+                </table>
+            </div>  
         </div>
-
     </div>
 </body>
 </html>

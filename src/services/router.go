@@ -36,14 +36,17 @@ func NewRouter() *mux.Router {
 	//	router.HandleFunc("/web",http.FileServer(http.Dir(staticDir))
 	//	router.HandleFunc("/", kubernetes.HomeHandler)
 	router.HandleFunc("/login", Middleware(kaau.LoginHandler)).Methods("POST")
-	router.HandleFunc("/logout", Middleware(kaau.LogoutPageHandler)).Methods("POST")
+	router.HandleFunc("/logout", Middleware(kaau.LogoutPageHandler))
 	router.HandleFunc("/index", Middleware(kaau.HomeHandler))
 	router.HandleFunc("/", Middleware(kaau.LoginPageHandler))
 	router.HandleFunc("/app", Middleware(kaau.AppHandler))
-//	router.PathPrefix("/css").Handler(http.FileServer(http.Dir("/web/css")))
+	//	router.PathPrefix("/css").Handler(http.FileServer(http.Dir("/web/css")))
 	router.PathPrefix("/web/").Handler(http.StripPrefix("/web/", http.FileServer(http.Dir("web"))))
-	router.HandleFunc("/viewrole", Middleware(kaau.ViewRolePageHandler))
-	router.HandleFunc("/viewclusterrole", Middleware(kaau.ViewClusterRolePageHandler))
+	router.HandleFunc("/role", Middleware(kaau.ViewRolePageHandler))
+	router.HandleFunc("/clusterrole", Middleware(kaau.ViewClusterRolePageHandler))
+	router.HandleFunc("/serviceaccount", Middleware(kaau.ViewSAPageHandler))
+	router.HandleFunc("/rolebinding", Middleware(kaau.ViewRoleBindingPageHandler))
+	router.HandleFunc("/clusterrolebinding", Middleware(kaau.ViewClusterRoleBindingPageHandler))
 
 	return router
 }

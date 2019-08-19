@@ -11,12 +11,69 @@
     }  
     
 .table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      overflow-x: auto;
-      width:100%
+    border-collapse: collapse;
+    overflow-x: auto;
+    width: 100%;
+	  left: 20%;
+    margin-left: -20px;
+    top: 30%;
+    margin-top: -30px;
+    background:  #ffffff; 
+    overflow-x: auto;
     }
 .th, td {
-      padding: 5px;
-      text-align: left;
+  padding: 5px;
+  text-align: left;
+  height: 50px;
+  vertical-align: middle;
     }
+	
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 24px;
+  margin: 4px 2px;
+  opacity: 0.7;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 15px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}	
+
+.button:hover {
+  opacity: 1
+}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+  opacity: 0.3
+}
+.centered-element {
+    height: auto;
+    width: auto;
+    position: absolute;
+    left: 40%;
+    margin-left: -40px;
+    top: 30%;
+    margin-top: -30px;
+    background:  #ffffff; 
+    border-radius:  8px; 
+    padding: 10px 10px 20px 10px;
+    background-color: white;
+    overflow-x: auto;
+  }
+
+.pre-class {
+    text-align: left;
+}
+
+pre.pre-class {
+  text-align: left;
+}

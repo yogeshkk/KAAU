@@ -7,24 +7,20 @@ import (
 	"net/http"
 )
 
-// Kubeconfig defining  as global variable
+// Kubeconfig  defining  as global variable
 var Kubeconfig string
+
+//Username defining as global variable
+var Username string
 
 // HomeHandler export
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	userName := utility.GetUserName(r)
-	fmt.Println(userName)
+	var indexdata DataIndexPage
 	if !utility.IsEmpty(userName) {
-		//fmt.Fprintf(w, "Hello, %s you logged to the site.. continue broswing \n", userName)
-		kubeclient := GetKubeClient(Kubeconfig)
-		namespaces := GetNameSpaces(kubeclient)
-		namespaces.UserName = userName
-		namespaces.Host = r.Host
-		fmt.Println(namespaces)
-		//		clusterRole := GetClusterRole(kubeclient)
-		//		fmt.Println(clusterRole)
+		indexdata.UserName = userName
 		tmpl := template.Must(template.ParseFiles("web/templetes/index.html"))
-		tmpl.Execute(w, namespaces)
+		tmpl.Execute(w, indexdata)
 
 	} else {
 		http.Redirect(w, r, "/", 302)
@@ -34,22 +30,34 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 //ViewRolePageHandler exported
 func ViewRolePageHandler(w http.ResponseWriter, r *http.Request) {
-	QueryNamespace := r.URL.Query().Get("namespace")
-	kubeclient := GetKubeClient(Kubeconfig)
-	RolesDetails := GetRoles(kubeclient, QueryNamespace)
-	fmt.Println(RolesDetails)
-	tmpl := template.Must(template.ParseFiles("web/templetes/viewrole.html"))
-	w.Header().Set("Content-Type", "text/html")
-	tmpl.Execute(w, RolesDetails)
+	userName := utility.GetUserName(r)
+	if !utility.IsEmpty(userName) {
+		kubeclient := GetKubeClient(Kubeconfig)
+		RolesDetails := GetRoles(kubeclient)
+		RolesDetails.UserName = userName
+		fmt.Println(RolesDetails)
+		tmpl := template.Must(template.ParseFiles("web/templetes/roles.html"))
+		w.Header().Set("Content-Type", "text/html")
+		tmpl.Execute(w, RolesDetails)
+	} else {
+		http.Redirect(w, r, "/", 302)
+	}
 }
+
 // ViewClusterRolePageHandler Exported
 func ViewClusterRolePageHandler(w http.ResponseWriter, r *http.Request) {
-	kubeclient := GetKubeClient(Kubeconfig)
-	ClusterRolesDetails := GetClusterRole(kubeclient)
-	fmt.Println(ClusterRolesDetails)
-	tmpl := template.Must(template.ParseFiles("web/templetes/viewclusterrole.html"))
-	w.Header().Set("Content-Type", "text/html")
-	tmpl.Execute(w, ClusterRolesDetails)
+	userName := utility.GetUserName(r)
+	if !utility.IsEmpty(userName) {
+		kubeclient := GetKubeClient(Kubeconfig)
+		ClusterRolesDetails := GetClusterRole(kubeclient)
+		ClusterRolesDetails.UserName = userName
+		tmpl := template.Must(template.ParseFiles("web/templetes/clusterrole.html"))
+		w.Header().Set("Content-Type", "text/html")
+		tmpl.Execute(w, ClusterRolesDetails)
+	} else {
+		http.Redirect(w, r, "/", 302)
+	}
+
 }
 
 // AppHandler export
@@ -93,4 +101,53 @@ func LogoutPageHandler(w http.ResponseWriter, r *http.Request) {
 	utility.ClearCookie(w)
 	redirectTarget := "/"
 	http.Redirect(w, r, redirectTarget, 302)
+}
+
+
+// ViewSAPageHandler exported
+func ViewSAPageHandler(w http.ResponseWriter, r *http.Request) {
+	userName := utility.GetUserName(r)
+	if !utility.IsEmpty(userName) {
+		kubeclient := GetKubeClient(Kubeconfig)
+		SADetails := GetServiceAccount(kubeclient)
+		SADetails.UserName = userName
+		fmt.Println(SADetails)
+		tmpl := template.Must(template.ParseFiles("web/templetes/serviceaccount.html"))
+		w.Header().Set("Content-Type", "text/html")
+		tmpl.Execute(w, SADetails)
+	} else {
+		http.Redirect(w, r, "/", 302)
+	}
+}
+// ViewRoleBindingPageHandler exported
+func ViewRoleBindingPageHandler(w http.ResponseWriter, r *http.Request) {
+	userName := utility.GetUserName(r)
+	if !utility.IsEmpty(userName) {
+		kubeclient := GetKubeClient(Kubeconfig)
+		RBDetails := GetRoleBinding(kubeclient)
+		RBDetails.UserName = userName
+		fmt.Println(RBDetails)
+		tmpl := template.Must(template.ParseFiles("web/templetes/rolesbinding.html"))
+		w.Header().Set("Content-Type", "text/html")
+		tmpl.Execute(w, RBDetails)
+	} else {
+		http.Redirect(w, r, "/", 302)
+	}
+}
+
+
+// ViewClusterRoleBindingPageHandler exported
+func ViewClusterRoleBindingPageHandler(w http.ResponseWriter, r *http.Request) {
+	userName := utility.GetUserName(r)
+	if !utility.IsEmpty(userName) {
+		kubeclient := GetKubeClient(Kubeconfig)
+		ClusterRBDetails := GetClusterRoleBinding(kubeclient)
+		ClusterRBDetails.UserName = userName
+		fmt.Println(ClusterRBDetails)
+		tmpl := template.Must(template.ParseFiles("web/templetes/clusterrolebinding.html"))
+		w.Header().Set("Content-Type", "text/html")
+		tmpl.Execute(w, ClusterRBDetails)
+	} else {
+		http.Redirect(w, r, "/", 302)
+	}
 }

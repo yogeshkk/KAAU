@@ -10,7 +10,6 @@ import (
 	"path/filepath"
 )
 
-
 func main() {
 	fmt.Println("hello main")
 	//	kubeconfig := filepath.Join(os.Getenv("HOME"), ".kube", "config")
@@ -29,9 +28,8 @@ func main() {
 
 	kaau.Kubeconfig = filepath.Join(os.Getenv("HOME"), ".kube", "config")
 
-
 	r := services.NewRouter()
-	if err := http.ListenAndServe(":8080", r); err != nil {
+	if err := http.ListenAndServe(":3333", r); err != nil {
 		panic(err)
 	}
 
