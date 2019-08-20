@@ -20,9 +20,10 @@ It can get below from Kubernetes show in UI.
 4) Role Binding
 5) Cluster Role Binding
 
-NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use (though you can use in minikube like me). You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
+You can download windows and linux binary from release page. 
+Run minukube and then start the program it will take kube config from home folder. 
 
-To build
+Or you can customize build as below
 ```
 go get https://github.com/yogeshkk/KAAU
 cd $GOPATH/src/github/yogeshkk/KAAU/src
@@ -33,6 +34,8 @@ go build src/main.go
 Brower at localhost:3333
 username and password will be at https://github.com/yogeshkk/KAAU/blob/master/src/utility/validation.go
 ```
+
+NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use (though you can use in minikube like me). You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
 
 Twitter https://twitter.com/yogeshkunjir
 LinkedIn https://www.linkedin.com/in/yogeshkunjir/
