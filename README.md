@@ -38,6 +38,7 @@ As of now, all modules are working. The pending part is to generalize code, Add 
 Q9) Last thing. What a great logo.
 Thanks. It is "Crow the detective" made by my wife. She is not much on social media. I will convey your message. 
 
+<<<<<<< HEAD
 
 Read bit about RBAC
 https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0
@@ -45,8 +46,12 @@ https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0
 
 Status of Project.
 All module are functional.
+=======
+You can download windows and linux binary from release page. 
+Run minukube and then start the program it will take kube config from home folder. 
+>>>>>>> 15de43ce7ae5451ca90f8b8f89faeed80885da61
 
-To build
+Or you can customize build as below
 ```
 go get https://github.com/yogeshkk/KAAU
 cd $GOPATH/src/github/yogeshkk/KAAU/src
@@ -58,5 +63,26 @@ Brower at localhost:3333
 username and password will be at https://github.com/yogeshkk/KAAU/blob/master/src/utility/validation.go
 ```
 
+NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use (though you can use in minikube like me). You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
+
 Twitter https://twitter.com/yogeshkunjir
 LinkedIn https://www.linkedin.com/in/yogeshkunjir/
+
+Login Screen
+
+![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
+
+Home Page
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Home_Page.png)
+
+
+Service Account
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Service_Account.png)
+
+
+Role Page
+![Home Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Roles.png)
+
+
+Role Binding
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
