@@ -4,13 +4,15 @@ NAQ(Nobody Asked Questions)
 
 Q1) What is KAAU?
 
-Ans: KAAU is an abbreviation of Kubernetes Authorization Authentication Utility. It is a small hobby project I have been working on the past couple of month
+Ans: KAAU is an abbreviation of Kubernetes Authorization Authentication Utility. It is a small hobby project I have been working on the past couple of months.
 
 Q2) What this utility does?
 
-Ans: KAAU is a web-based application it does CRUD(Create, Read, Update, and Delete) on Authentication and Authorization part which are.
-Authentication,
+Ans: KAAU is a web-based application it does CRUD(Create, Read, Update, and Delete) on Kubernetes Authentication and Authorization part which are.
+
+Authentication
 - service Account
+
 Authorization
 - Roles
 - Cluster Roles
@@ -19,14 +21,19 @@ Authorization
 
 Q3) Hold on you missed User account in which are part of Authentication.
 
-Ans: Good catch. I am using an API call to Kubernetes to manage the above and User accounts are not allowed to create via this. read in detail.
+Ans: Good catch. User accound are not manage by kuberntes and I am using an API call to Kubernetes to manage the above.
+
+```
+Normal users are assumed to be managed by an outside, independent service. An admin distributing private keys, a user store like Keystone or Google Accounts, even a file with a list of usernames and passwords. In this regard, Kubernetes does not have objects which represent normal user accounts. Normal users cannot be added to a cluster through an API call.
+```
+[https://kubernetes.io/docs/reference/access-authn-authz/authentication/](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+
 
 Q4) Ok. But I have Kubectl to do all the above tasks and more then why so much effort if no one going to use it.
 
-Ans: So cruel but it is ok if this go in git graveyard. I was loved and learning the Go language so I thought I could do something also I use kubernetes every day. When your users and roles grow it is painfull to find
-which account entitles which role via which role binding. So a simple UI can be helpful. It is ok if no one uses it will be in opensource so another brillance developer can see how easy to develop around kubernetes.
+Ans: So cruel but it is ok if this go in git graveyard. I was loved kubernetes and learning the Go language so I thought I could do something also I use kubernetes every day. When your users and roles grow it is painfull to find which account entitles which role via which role binding. So a simple UI can be helpful. It is ok if no one uses it will be in opensource so another brillance developer can see how easy to develop around kubernetes.
 
-Q5) You are learning Go Lan. Is that why code is so awful?
+Q5) You are learning Go Language. Is that why code is so awful?
 
 Ans: Yes. Not only Golan but HTML and CSS also. I know how to write a code still, have to learn how not to write code. 
 
@@ -41,7 +48,7 @@ Ans: I will be working on fixing code. You can provide me star on GitHub for enc
 
 Q8) What is pending? 
 
-Ans: As of now, all modules are working. The pending part is to generalize code, Add error handling and add unit test cases which I have to figure out how to.
+Ans: As of now, all modules are working. The pending part is to generalize code, Add error handling and add unit test cases which I have to figure out how to do.
 
 Q9) Last thing. What a great logo.
 
