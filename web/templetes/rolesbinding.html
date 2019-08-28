@@ -35,16 +35,18 @@
             </div>
         </div>
         <div class="containt">
-         <button class="ActionButton">Create</button><button class="ActionButton">Update</button><button class="ActionButton">Delete</button>  
+                <h2 style="text-align: center"> Role Binding </h2>
+                <div class="action">
+                        <a href="/managerolebinding?action=create"><button class="ActionButton">Create</button></a> 
+                        <a href="/managerolebinding?action=update"><button class="ActionButton">Update</button></a>
+                        <a href="/managerolebinding?action=delete"><button class="ActionButton">Delete</button></a> 
+                       </div> 
             <div class="table-div">
                 <table class="role-table">
-                    <tr><th></th> <th>Name Space</th><th>Cluster Role Binding</th><th>Role</th><th>Account</th></tr>
+                    <tr><th>Name</th><th>Name Space</th><th>Role</th><th>Account</th></tr>
                     {{range .RoleBindings }}
-                    <tr><td><input type="radio" name="roles" value="{{ .Name }}"></td><td>{{ .NameSpace }}</td><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Role}}</pre></td><td ><pre class="pre-class">{{.Account}}</pre></td></tr>
+                    <tr><td>{{ .Name }}</td><td>{{ .NameSpace }}</td><td ><pre class="pre-class">{{.Role}}</pre></td><td ><pre class="pre-class">{{.Account}}</pre></td></tr>
                     {{end}}
-
-<!--                    <tr><td><input type="radio" name="roles" value="role_name"></td><td>abcd</td><td>xyz</td></tr>
--->
                 </table>
             </div>  
         </div>

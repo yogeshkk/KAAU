@@ -2,6 +2,8 @@
 <html>
 <head>
 <title> Welcome To KAAU </title>
+   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="/web/css/main.css">
   <script type="text/javascript" src="/web/javascript/menu.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -35,12 +37,18 @@
             </div>
         </div>
         <div class="containt">
-         <button class="ActionButton">Create</button><button class="ActionButton">Update</button><button class="ActionButton">Delete</button>  
+                <h2 style="text-align: center"> Cluster Roles </h2>
+
+            <div class="action">
+                <a href="/manageclusterrole?action=create"><button class="ActionButton">Create</button></a> 
+                <a href="/manageclusterrole?action=update"><button class="ActionButton">Update</button></a>
+                <a href="/manageclusterrole?action=delete"><button class="ActionButton">Delete</button></a> 
+               </div> 
             <div class="table-div">
                 <table class="role-table">
-                    <tr><th></th><th>Role Name</th><th>Rules</th></tr>
+                    <tr><th>Role Name</th><th>Rules</th></tr>
                     {{range .Roles }}
-                    <tr><td><input type="radio" name="roles" value="{{ .Name }}"></td><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Rule}}</pre></td></tr>
+                    <tr><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Rule}}</pre></td></tr>
                     {{end}}
                 </table>
             </div>  

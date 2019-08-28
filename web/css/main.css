@@ -11,7 +11,7 @@
 .header-div{
     width: 100%;
     height: 50px;
-    background-color: #24292e;
+    background-color: #000033;
     overflow-x: auto;
 
 }
@@ -171,17 +171,20 @@
 }
 
 .containt{
-    width: 95%;
+    width: 100%;
     height: 550px;
-    margin: 2%;
     color: #29627e;
     display: inline-block;
+}
+
+.containt h2 {
+    margin: 5px;
 }
 
 .ActionButton{
     display: inline-block;
     padding: 5px 5px 5px 5px;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -194,20 +197,75 @@
     margin-top: 5px;
     margin-left: 15px;
     margin-bottom: 10px;
+
+}
+.action{
+    margin: 1% auto auto 1%;
+    width: 98%;
+    text-align: center;
 }
 
-.ActionButton:hover {background-color: #004080}
+.ActionButton:hover {background-color: #000033}
 
 .ActionButton:active {
-  background-color: #004080;
+  background-color: #000033;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-.table-div{
+
+.form-div{
     overflow: auto;
-    width: 100%;
-    
+    margin: 1% auto auto 1%;
+    width: 86%;
+    text-align: center;
+   
+}
+
+.form-div label{
+    font-size: 16px;
+    padding: 10px;
+    display:inline-block;
+    width:150px;
+    text-align:right;
+    vertical-align: middle;
+}
+
+.form-div input{
+    font-size: 16px;
+    padding: 5px;
+    display: inline-block;
+    width: 300px;
+    margin-right: 15px;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 5px;
+    display: inline-block;
+    width: 300px;
+    margin-right: 15px;
+    text-align: left;
+    margin-top: 10px;
+}
+.form-div textarea{
+    font-size: 16px;
+    padding: 5px;
+    display: inline-block;
+    width: 300px;
+    margin-right: 15px;
+    text-align: left;
+    margin-top: 10px;
+    vertical-align: top;
+}
+.form-div button{
+    font-size: 18px;
+    padding: 5px;
+    /* display: inline-block; */
+    /* margin: 3px 275px; */
+    /* text-align: left; */
+    /* margin-top: 30px; */
+    /* vertical-align: top; */
+    margin: 30px auto auto 140px;
 }
 
 .role-table{
@@ -291,8 +349,13 @@
 
 .ErrorMessage{
     font-size: 17px;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
     color: #e00025 ;
     margin-left: 10px;
 }
+
+tr.selected {
+    background: #ddd;
+  }
+  

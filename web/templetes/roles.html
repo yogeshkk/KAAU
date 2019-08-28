@@ -2,6 +2,8 @@
 <html>
 <head>
 <title> Welcome To KAAU </title>
+   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="/web/css/main.css">
   <script type="text/javascript" src="/web/javascript/menu.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -36,16 +38,22 @@
         </div>
 
         <div class="containt">
-         <button class="ActionButton">Create</button><button class="ActionButton">Update</button><button class="ActionButton">Delete</button>  
-         <label for="Error" class="ErrorMessage" >Create, Update, and Delete actions pending. Will Keep you updated.</label> <br>
+                <h2 style="text-align: center"> Name Spaced Roles </h2>
+            <div class="action">
+         <a href="/managerole?action=create"><button class="ActionButton">Create</button></a> 
+         <a href="/managerole?action=update"><button class="ActionButton">Update</button></a>
+         <a href="/managerole?action=delete"><button class="ActionButton">Delete</button></a> 
+        </div> 
             <div class="table-div">
                 <table class="role-table">
-                    <tr><th></th> <th>Name Space</th><th>Role Name</th><th>Rules</th></tr>
-                    {{range .Roles }}
-                    <tr><td><input type="radio" name="roles" value="{{ .Name }}"></td><td>{{ .NameSpace }}</td><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Rule}}</pre></td></tr>
+                    <tr><th>Name Space</th><th>Role Name</th><th>Rules</th></tr>
+                    {{range $index, $element := .Roles }}
+
+                    <tr><td><label for='regular'>{{ .NameSpace }}</label></td><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Rule}}</pre></td></tr>
                     {{end}}
 <!--                    <tr><td><input type="radio" name="roles" value="role_name"></td><td>abcd</td><td>xyz</td></tr>
 -->
+
                 </table>
             </div>  
         </div>

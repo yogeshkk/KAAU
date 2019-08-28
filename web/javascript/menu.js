@@ -40,3 +40,26 @@ window.addEventListener("pageshow", function(event) {
     window.location.reload();
   }
 });
+
+
+$('.product-options tr').click(function() {
+  $(this).children('td').children('input').prop('checked', true);
+   
+   $('.product-options tr').removeClass('selected');
+   $(this).toggleClass('selected');
+ 
+ });
+
+function ConfirmDelete()
+ {
+  var x = confirm("Are you sure you want to delete?");
+   if (x)
+       return true;
+   else
+  returnToPreviousPage();
+     return false;
+  }
+
+ function returnToPreviousPage() {
+  window.history.back();
+}

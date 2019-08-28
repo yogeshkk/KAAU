@@ -35,12 +35,18 @@
             </div>
         </div>
         <div class="containt">
-         <button class="ActionButton">Create</button><button class="ActionButton">Update</button><button class="ActionButton">Delete</button>  
-            <div class="table-div">
+                <h2 style="text-align: center"> Cluster Role Binding </h2>
+
+                <div class="action">
+                    <a href="/manageclusterrolebinding?action=create"><button class="ActionButton">Create</button></a> 
+                    <a href="/manageclusterrolebinding?action=update"><button class="ActionButton">Update</button></a>
+                    <a href="/manageclusterrolebinding?action=delete"><button class="ActionButton">Delete</button></a> 
+                   </div> 
+                <div class="table-div">
                 <table class="role-table">
-                    <tr><th></th><th>Role Binding</th><th>Role</th><th>Account</th></tr>
+                    <tr><th>Name</th><th>Role</th><th>Account</th></tr>
                     {{range .RoleBindings }}
-                    <tr><td><input type="radio" name="roles" value="{{ .Name }}"></td><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Role}}</pre></td><td ><pre class="pre-class">{{.Account}}</pre></td></tr>
+                    <tr><td>{{ .Name }}</td><td ><pre class="pre-class">{{.Role}}</pre></td><td ><pre class="pre-class">{{.Account}}</pre></td></tr>
                     {{end}}
                 </table>
             </div>  

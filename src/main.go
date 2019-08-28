@@ -17,17 +17,15 @@ func main() {
 	//	flag.Parse()
 	//	kaau.GetKubeClient(kubeconfig)
 
-	var ns, label, field, maxClaims, kubeconfig string
+	var kubeconfig string
 	kubeconfig = filepath.Join(os.Getenv("HOME"), ".kube", "config")
-	flag.StringVar(&ns, "namespace", "", "namespace")
-	flag.StringVar(&label, "l", "", "Label selector")
-	flag.StringVar(&field, "f", "", "Field selector")
-	flag.StringVar(&maxClaims, "max-claims", "100Gi", "Maximum total claims to watch")
 	flag.StringVar(&kubeconfig, "kubeconfig", kubeconfig, "kubeconfig file")
 	flag.Parse()
 
 	kaau.Kubeconfig = filepath.Join(os.Getenv("HOME"), ".kube", "config")
-
+	//kubeclient := kaau.GetKubeClient(kubeconfig)
+	//result := kaau.CreateyamlRoles(kubeclient)
+	//fmt.Println(result)
 	r := services.NewRouter()
 	if err := http.ListenAndServe(":3333", r); err != nil {
 		panic(err)

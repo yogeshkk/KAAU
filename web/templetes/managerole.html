@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Welcome To KAAU </title>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/web/css/main.css">
+<script type="text/javascript" src="/web/javascript/menu.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+<body class="index"> 
+    <div class="body-div">
+        <div class="header-div">
+            <div class="logo-div">
+                <a href="/index" class="menu-anchor"> <div class ="homepage-a-div">Home</div> </a>
+            </div>
+            <div class="menu-div">
+                <a class="menu-anchor" href="javascript:showUserMenu();"> <div class ="user-div"> User</div> </a>
+                    <div id="UserDropDown" class="User-DropDown">
+                        <a href="/serviceaccount">Service Accounts</a>
+                    </div>
+                <a class="menu-anchor" href="javascript:showRoleMenu();"> <div class ="user-div">Role</div> </a>
+                    <div id="RoleDropDown" class="Role-DropDown">
+                        <a href="/role">Roles</a>
+                        <a href="/clusterrole">Cluster Roles</a>
+                     </div>
+                <a  class="menu-anchor" href="javascript:showRoleBindingMenu();"> <div class ="user-div"> Role-binding</div></a>
+                    <div id="RoleBindingDropDown" class="role-binding-dropdown">
+                        <a href="/rolebinding">Role Bindings</a>
+                        <a href="/clusterrolebinding">Cluster Role Binding</a>
+                    </div>
+            </div>
+            <a  class="menu-anchor" href="javascript:showLogoutMenu();"> <div class="logout-div" > {{ .UserName }} </div> </a>
+                <div id="logoutdropdown" class="logout-dropdown">
+                        <a href="/logout">Log Out</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="containt">
+                <h2 style="text-align: center"> Name Spaced Roles </h2>
+
+                <div class="action">
+            <a href="/managerole?action=create"><button class="ActionButton">Create</button></a> 
+            <a href="/managerole?action=update"><button class="ActionButton">Update</button></a>
+            <a href="/managerole?action=delete"><button class="ActionButton">Delete</button></a>  <br>
+            {{if .ErrMessage }}
+         <label for="Error" class="ErrorMessage" >{{ .ErrMessage}}</label> <br>
+            {{end}}
+                </div>
+            <div class="form-div">
+                <table class="role-table">
+                    {{if .Action }}
+                    <form method="POST" action="/managerole?action={{.Action}}">
+                        <label for="name" >Role Name</label> <input type="text" id="name" name="name" required><br>
+                        <label for="Namespace" >Namespace</label> <input type="text" id="name" name="namespaces" required><br>
+                        {{if eq .Action  "create"}}
+                        <label for="rule"> Rules (YAML)</label>
+                        <textarea rows="10" cols="50" name="rule" placeholder="rules:
+- apiGroups:
+  - ''
+  resourceNames:
+  - kube-proxy
+  resources:
+  - configmaps
+  verbs:
+  - get"></textarea>   <br>
+
+                        <button name="submit" value="create" type="submit" >Create</button> <br><br><br>
+                        {{end}}
+                        {{if eq .Action  "update"}}
+                        <label for="rule">Rules (YAML)</label>
+                        <textarea rows="10" cols="50" name="rule" placeholder="rules:
+- apiGroups:
+  - ''
+  resourceNames:
+  - kube-proxy
+  resources:
+  - configmaps
+  verbs:
+  - get"></textarea>  <br>
+                        <button name="submit" value="update" type="submit" >Update</button> <br><br><br>
+                        {{end}}
+                        {{if eq .Action  "delete"}}
+                        <button name="submit" value="delete" type="submit" onclick="ConfirmDelete()">Delete Role</button> <br><br><br>
+                        {{end}}
+                        </form>
+                    {{else}}
+                    <form method="POST" action="/managerole?action=create">
+                        <label for="name" >Role Name</label> <input type="text" id="name" name="name" required><br>
+                        <label for="Namespace" >Namespace</label> <input type="text" id="name" name="namespaces" required><br>
+                        <label for="rule">Rules (YAML)</label>
+                        <textarea rows="10" cols="50" name="rule" placeholder="rules:
+- apiGroups:
+  - ''
+  resourceNames:
+  - kube-proxy
+  resources:
+  - configmaps
+  verbs:
+  - get"></textarea>  <br>
+                        <button name="submit" value="create" type="submit" >Create</button> <br><br><br>
+                    {{end}}
+                    </table>
+            </div>  
+        </div>
+
+    </div>
+</body>
+</html>
