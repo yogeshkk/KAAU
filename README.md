@@ -96,7 +96,25 @@ Service Account
 
 
 Role Page
-![Home Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Roles.png)
+![Role Page(https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Roles.png)
+
+Create Role Page
+![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_role.png)
+
+Create Role Page
+![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_role.png)
+
+Role Created notification
+![Role Created notification](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_created.png)
+
+Delete role Confirmation.
+![Delete role Confirmation](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Delete_role_confirmation.png) 
+
+Delete role
+![delete Role](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_deteled.png) 
+ 
+Role Binding
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
 
 
 Role Binding
