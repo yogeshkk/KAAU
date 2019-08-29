@@ -101,8 +101,8 @@ Role Page
 Create Role Page
 ![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_role.png)
 
-Create Role Page
-![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_role.png)
+Creating Role Page
+![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/creating_role.png
 
 Role Created notification
 ![Role Created notification](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_created.png)
