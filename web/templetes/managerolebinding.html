@@ -83,7 +83,7 @@
                         <button name="submit" value="update" type="submit" >Update</button> <br><br><br>
                         {{end}}
                         {{if eq .Action  "delete"}}
-                        <button name="submit" value="delete" type="submit" >Delete</button> <br><br><br>
+                        <button name="submit" value="delete" type="submit" onclick="ConfirmDelete()">Delete</button> <br><br><br>
                         {{end}}
                         </form>
                     {{else}}
