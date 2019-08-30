@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"gomscode/src/utility"
 	"html/template"
-	"log"
+
 	"net/http"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -35,7 +35,7 @@ type DataIndexPage struct {
 // GetKubeClient Exported
 func GetKubeClient(kubeconfig string) *kubernetes.Clientset {
 
-	fmt.Println(kubeconfig)
+//	fmt.Println(kubeconfig)
 	inClusterConfig, err := rest.InClusterConfig()
 	if err != nil {
 		fmt.Println(err)
@@ -47,7 +47,7 @@ func GetKubeClient(kubeconfig string) *kubernetes.Clientset {
 			fmt.Println("Found Kube config using same")
 			clientset, err2 := kubernetes.NewForConfig(config)
 			if err2 != nil {
-				log.Fatal(err2)
+				fmt.Println(err2)
 			} else {
 				K8sClientSet = *clientset
 				return clientset
@@ -71,7 +71,7 @@ func GetNameSpaces(clntset *kubernetes.Clientset) NameSpaceDetails {
 	var NameSpaces NameSpaceDetails
 	namespace, err := clntset.CoreV1().Namespaces().List(metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	for _, namespace := range namespace.Items {
 		NameSpaces.Name = namespace.Name

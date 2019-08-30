@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"gomscode/src/utility"
 	"html/template"
-	"log"
+
 	"net/http"
 	"strings"
 
@@ -56,24 +56,24 @@ func GetRoleBinding(clntset *kubernetes.Clientset) DataRoleBindingPage {
 	var DataRolesBinding DataRoleBindingPage
 	AllNamespaces, err := clntset.CoreV1().Namespaces().List(metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	for _, namespace := range AllNamespaces.Items {
 		NamespaceRoleBinding, err := clntset.RbacV1().RoleBindings(namespace.Name).List(metav1.ListOptions{})
 
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		for _, items := range NamespaceRoleBinding.Items {
 			Role := items.RoleRef
 			r, err := yaml.Marshal(Role)
 			if err != nil {
-				log.Fatal(err)
+				fmt.Println(err)
 			}
 			Account := items.Subjects
 			a, err := yaml.Marshal(Account)
 			if err != nil {
-				log.Fatal(err)
+				fmt.Println(err)
 			}
 			DataRolesBinding.RoleBindings = append(DataRolesBinding.RoleBindings, RoleBindingDetails{
 				Name:      items.Name,
@@ -114,7 +114,7 @@ func ManageRolebBindingPOSTHandler(w http.ResponseWriter, r *http.Request) {
 	roleref = strings.TrimSpace(roleref)
 	account := r.FormValue("account")
 	account = strings.TrimSpace(account)
-	fmt.Println(name, roleref, account)
+//	fmt.Println(name, roleref, account)
 	ManagePage.UserName = userName
 	ManagePage.Action = r.URL.Query().Get("action")
 	if !utility.IsEmpty(userName) {
@@ -146,7 +146,7 @@ metadata:
 	//	yamlString = yamlString + "\nsubjects:"
 	yamlString = yamlString + "\n" + account
 
-	fmt.Println(yamlString)
+//	fmt.Println(yamlString)
 
 	//v1Role := new(v1.Role)
 	v1RoleBinding := new(v1.RoleBinding)
@@ -155,7 +155,7 @@ metadata:
 		fmt.Println(err)
 		return "ERROR: Can not Unmarshall YAML Please Check the YAML syntax"
 	}
-	fmt.Println(v1RoleBinding)
+//	fmt.Println(v1RoleBinding)
 
 	if action == "create" {
 		roleOut, err := clntset.RbacV1().RoleBindings(namespace).Create(v1RoleBinding)

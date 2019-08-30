@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"gomscode/src/utility"
 	"html/template"
-	"log"
+
 	"net/http"
 	"strings"
 
@@ -77,7 +77,7 @@ func MangeRolePOSTHandler(w http.ResponseWriter, r *http.Request) {
 	namespace = strings.TrimSpace(namespace)
 	roles := r.FormValue("rule")
 	roles = strings.TrimSpace(roles)
-	fmt.Println(name, namespace, roles, action)
+//	fmt.Println(name, namespace, roles, action)
 	ManagePage.UserName = userName
 	ManagePage.Action = r.URL.Query().Get("action")
 	if !utility.IsEmpty(userName) {
@@ -96,18 +96,18 @@ func GetRoles(clntset *kubernetes.Clientset) DataRolePage {
 	var DataRoles DataRolePage
 	AllNamespaces, err := clntset.CoreV1().Namespaces().List(metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	for _, namespace := range AllNamespaces.Items {
 		NamespaceRole, err := clntset.RbacV1().Roles(namespace.Name).List(metav1.ListOptions{})
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		for _, items := range NamespaceRole.Items {
 			Rule := items.Rules
 			y, err := yaml.Marshal(Rule)
 			if err != nil {
-				log.Fatal(err)
+				fmt.Println(err)
 			}
 			DataRoles.Roles = append(DataRoles.Roles, RoleDetails{
 				Name:      items.Name,
@@ -135,7 +135,7 @@ metadata:
 	yamlString = strings.Replace(yamlString, "LKJOIHJJBWDJHB", namespace, 1)
 	yamlString = yamlString + roles
 
-	fmt.Println(yamlString)
+//	fmt.Println(yamlString)
 
 	v1Role := new(v1.Role)
 	err := yaml.Unmarshal([]byte(yamlString), &v1Role)
@@ -143,7 +143,7 @@ metadata:
 		fmt.Println(err)
 		return "ERROR: Can not Unmarshall YAML Please Check the YAML syntax"
 	}
-	fmt.Println(v1Role)
+//	fmt.Println(v1Role)
 
 	if action == "create" {
 		roleOut, err := clntset.RbacV1().Roles(namespace).Create(v1Role)

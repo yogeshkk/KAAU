@@ -1,9 +1,8 @@
 FROM scratch
 
+COPY kaau /
+COPY /web /web/
 
-COPY kaau /opt/
-COPY web /opt/
 EXPOSE 3333
 
-
-ENTRYPOINT ["/opt/kaau"]
+ENTRYPOINT ["./kaau"]

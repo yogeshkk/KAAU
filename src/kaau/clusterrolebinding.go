@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"gomscode/src/utility"
 	"html/template"
-	"log"
+
 	"net/http"
 	"strings"
 
@@ -56,18 +56,18 @@ func GetClusterRoleBinding(clntset *kubernetes.Clientset) DataClusterRoleBinding
 	var DataClusterRoleBinding DataClusterRoleBindingPage
 	ClusteRoleBindinag, err := clntset.RbacV1().ClusterRoleBindings().List(metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	for _, items := range ClusteRoleBindinag.Items {
 		Role := items.RoleRef
 		r, err := yaml.Marshal(Role)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		Account := items.Subjects
 		a, err := yaml.Marshal(Account)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		DataClusterRoleBinding.RoleBindings = append(DataClusterRoleBinding.RoleBindings, ClusterRoleBindingDetails{
 			Name:    items.Name,
@@ -108,7 +108,7 @@ func ManageClusterRolebBindingPOSTHandler(w http.ResponseWriter, r *http.Request
 	roleref = strings.TrimSpace(roleref)
 	account := r.FormValue("account")
 	account = strings.TrimSpace(account)
-	fmt.Println(name, roleref, account)
+//	fmt.Println(name, roleref, account)
 	ManagePage.UserName = userName
 	ManagePage.Action = r.URL.Query().Get("action")
 	if !utility.IsEmpty(userName) {
@@ -138,7 +138,7 @@ metadata:
 	//	yamlString = yamlString + "\nsubjects:"
 	yamlString = yamlString + "\n" + account
 
-	fmt.Println(yamlString)
+//	fmt.Println(yamlString)
 
 	//v1Role := new(v1.Role)
 	v1ClusterRoleBinding := new(v1.ClusterRoleBinding)
@@ -147,7 +147,7 @@ metadata:
 		fmt.Println(err)
 		return "ERROR: Can not Unmarshall YAML Please Check the YAML syntax"
 	}
-	fmt.Println(v1ClusterRoleBinding)
+//	fmt.Println(v1ClusterRoleBinding)
 
 	if action == "create" {
 		roleOut, err := clntset.RbacV1().ClusterRoleBindings().Create(v1ClusterRoleBinding)

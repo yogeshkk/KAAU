@@ -1,6 +1,6 @@
 * {
 
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-family: sans-serif,'helvetica neue', helvetica, arial ;
     font-weight:  300; 
 }
 .body-div {
@@ -52,8 +52,14 @@
     vertical-align: middle;
 
 }
+.logo-anchor{
+    margin:  0; 
+    text-decoration: none;
+    color:  #ffffff;
+}
+
 .menu-anchor{
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-family: sans-serif,'helvetica neue', helvetica, arial ;
     font-size: 16px;
     font-weight:  300; 
     margin:  0; 
@@ -303,16 +309,16 @@
     padding: 20px 20px 20px 20px;
     border: 1px solid #BFBFBF;
     background-color: white;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    box-shadow: 5px 5px 6px #aaaaaa
 }
 
 .login-div .input-block {
     margin: 10px;
     width: 90%;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
     vertical-align: middle;
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-family: sans-serif,'helvetica neue', helvetica, arial ;
     font-weight:  300; 
     border-radius: 4px;
 }
@@ -323,10 +329,10 @@
 .login-div .label-block {
     margin: 5px;
     width: 90%;
-    font-size: 25px;
+    font-size: 20px;
     padding: 5px;
     vertical-align: middle;
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-family: sans-serif,'helvetica neue', helvetica, arial ;
     font-weight:  400; 
     border-radius: 4px;
 }
@@ -359,3 +365,9 @@ tr.selected {
     background: #ddd;
   }
   
+logo-main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}

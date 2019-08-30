@@ -1,6 +1,5 @@
 package utility
 
-
 import "io/ioutil"
 
 // UserIsValid export
@@ -15,13 +14,14 @@ func UserIsValid(Name, pwd string) bool {
 	}
 	return IsValid
 }
+
 // IsEmpty export
 func IsEmpty(data string) bool {
 	if len(data) <= 0 {
 		return true
-	} 
-		return false
-	
+	}
+	return false
+
 }
 
 // LoadFile export
@@ -32,5 +32,3 @@ func LoadFile(fileName string) (string, error) {
 	}
 	return string(bytes), nil
 }
-
-

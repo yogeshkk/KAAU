@@ -2,15 +2,20 @@
 <html>
 <head>
 <title> Welcome To KAAU </title>
+   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="/web/css/main.css">
   <script type="text/javascript" src="/web/javascript/menu.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
+  </head>
 <body class="index"> 
     <div class="body-div">
         <div class="header-div">
             <div class="logo-div">
-                <a href="/index" class="menu-anchor"> <div class ="homepage-a-div">Home</div> </a>
+                <a href="/index" class="logo-anchor"> <div class ="homepage-a-div">
+                    <img src="/web/images/logo.png" height="50px" width="75px" style="
+                    display: block;">
+                </div> </a>
             </div>
             <div class="menu-div">
                 <a class="menu-anchor" href="javascript:showUserMenu();"> <div class ="user-div"> User</div> </a>
@@ -35,15 +40,23 @@
             </div>
         </div>
         <div class="containt">
+            <div style="margin-left: 15px">
             <h1>Project KAAU. </h1>
-            <h2>Kubernetes Authentication Authorisation Utility</h2>
+            <h2 style="margin-left: 0">Kubernetes Authentication Authorisation Utility</h2>
             
             <p>This is a Hobby Project yet not completed. This project aims to provide a management utility to Authorisation and Authentication for Kubernetes from a simple UI</p>
             <p>Read bit about RBAC <a href="https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0">On Medium</a></p>
-            <p>Status of Project. Currently, it can Authentication via web. you can see password hard coded in project ;-) It can connect to Kubernetes via kubernetes client.go library It can Get roles and cluster roles and show in UI. </p>
-            <p>NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use in Minikube also. You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks.</p>
+            <p>Status of Project. Currently, it can Authentication via web. you can see password hard coded in project ;-) It can connect to Kubernetes via kubernetes client.go library </p>
+            <p>It can do all (Create, Read, Update, and Delete) on Kubernetes Authentication and Authorization part which are. </p>
+             <ul><li>service Account</li>
+                <li>Roles</li>
+                <li>Cluster Roles</li>
+                <li>RoleBinding</li>
+                <li>ClusterRoleBinding</li>
+             </ul></p>
+            <p>NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not fully tested. only try in minikube. You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks.</p>
             <p>Twitter <a href="https://twitter.com/yogeshkunjir">https://twitter.com/yogeshkunjir</a> LinkedIn <a href="https://www.linkedin.com/in/yogeshkunjir/">https://www.linkedin.com/in/yogeshkunjir/</a> </p>
-
+        </div>
         </div>
 
     </div>

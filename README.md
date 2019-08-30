@@ -1,3 +1,5 @@
+![kaau](web/images/logo.png)
+
 # Project KAAU.
 
 NAQ(Nobody Asked Questions)
@@ -61,22 +63,6 @@ https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0
 Status of Project.
 All module are functional.
 
-Install/Try project 
-
-You can download windows and linux binary from release page. 
-Run minukube and then run exe it will take kube config from home folder. 
-
-Or you can customize build as below
-```
-go get https://github.com/yogeshkk/KAAU
-cd $GOPATH/src/github/yogeshkk/KAAU/src
-glide ensure
-cd ..
-go build src/main.go
-./main.exe
-Brower at localhost:3333
-username and password will be at https://github.com/yogeshkk/KAAU/blob/master/src/utility/validation.go
-```
 
 NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use (though you can use in minikube like me). You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
 

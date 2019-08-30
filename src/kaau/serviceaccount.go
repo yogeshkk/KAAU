@@ -4,10 +4,8 @@ import (
 	"fmt"
 	"gomscode/src/utility"
 	"html/template"
-	"log"
 	"net/http"
 	"strings"
-
 	"github.com/ghodss/yaml"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -54,18 +52,18 @@ func GetServiceAccount(clntset *kubernetes.Clientset) DataServiceAccountPage {
 	var DataSA DataServiceAccountPage
 	AllNamespaces, err := clntset.CoreV1().Namespaces().List(metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	for _, namespace := range AllNamespaces.Items {
 		ServiceAccount, err := clntset.CoreV1().ServiceAccounts(namespace.Name).List(metav1.ListOptions{})
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		for _, items := range ServiceAccount.Items {
 			/*		Rule := items.Rules
 					y, err := yaml.Marshal(Rule)
 					if err != nil {
-						log.Fatal(err)
+						fmt.Println(err)
 					}
 			*/
 			DataSA.ServiceAccount = append(DataSA.ServiceAccount, ServiceAccountDetails{
@@ -107,7 +105,7 @@ func ManageServiceAccountPOSTHandler(w http.ResponseWriter, r *http.Request) {
 	namespace = strings.TrimSpace(namespace)
 	roles := r.FormValue("rule")
 	roles = strings.TrimSpace(roles)
-	fmt.Println(name, namespace, roles, action)
+//	fmt.Println(name, namespace, roles, action)
 	ManagePage.UserName = userName
 	ManagePage.Action = r.URL.Query().Get("action")
 	if !utility.IsEmpty(userName) {
@@ -135,7 +133,7 @@ metadata:
 	yamlString = strings.Replace(yamlString, "ASECUBHKOMEH", name, 1)
 	yamlString = strings.Replace(yamlString, "LKJOIHJJBWDJHB", namespace, 1)
 
-	fmt.Println(yamlString)
+//	fmt.Println(yamlString)
 
 	v1ServiceAccount := new(v1.ServiceAccount)
 	err := yaml.Unmarshal([]byte(yamlString), &v1ServiceAccount)
@@ -143,7 +141,7 @@ metadata:
 		fmt.Println(err)
 		return "ERROR: Can not Unmarshall YAML Please Check the YAML syntax"
 	}
-	fmt.Println(v1ServiceAccount)
+//	fmt.Println(v1ServiceAccount)
 
 	if action == "create" {
 		// roleOut, err := clntset.RbacV1().Roles(namespace).Create(v1ServiceAccount)

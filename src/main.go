@@ -11,21 +11,13 @@ import (
 )
 
 func main() {
-	fmt.Println("hello main")
-	//	kubeconfig := filepath.Join(os.Getenv("HOME"), ".kube", "config")
-	//	flag.StringVar(&kubeconfig, "kubeconfig", kubeconfig, "kubeconfig file")
-	//	flag.Parse()
-	//	kaau.GetKubeClient(kubeconfig)
-
+	fmt.Println("Starting web server for KAAU... ")
 	var kubeconfig string
 	kubeconfig = filepath.Join(os.Getenv("HOME"), ".kube", "config")
 	flag.StringVar(&kubeconfig, "kubeconfig", kubeconfig, "kubeconfig file")
 	flag.Parse()
 
 	kaau.Kubeconfig = filepath.Join(os.Getenv("HOME"), ".kube", "config")
-	//kubeclient := kaau.GetKubeClient(kubeconfig)
-	//result := kaau.CreateyamlRoles(kubeclient)
-	//fmt.Println(result)
 	r := services.NewRouter()
 	if err := http.ListenAndServe(":3333", r); err != nil {
 		panic(err)

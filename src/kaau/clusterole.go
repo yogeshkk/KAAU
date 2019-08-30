@@ -4,7 +4,6 @@ import (
 	"html/template"
 	"fmt"
 	"strings"
-	"log"
 	"gomscode/src/utility"
 	v1 "k8s.io/api/rbac/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -37,13 +36,13 @@ func GetClusterRole(clntset *kubernetes.Clientset) DataClusterRolePage {
 	var DataClusterRole DataClusterRolePage
 	ClusteRole, err := clntset.RbacV1().ClusterRoles().List(metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	for _, items := range ClusteRole.Items {
 		Rule := items.Rules
 		y, err := yaml.Marshal(Rule)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		DataClusterRole.Roles = append(DataClusterRole.Roles, ClusterRoleDetails{
 			Name: items.Name,
@@ -83,7 +82,7 @@ metadata:
 
 	yamlString = yamlString + roles
 
-	fmt.Println(yamlString)
+//	fmt.Println(yamlString)
 
 	v1ClusterRole := new(v1.ClusterRole)
 	err := yaml.Unmarshal([]byte(yamlString), &v1ClusterRole)
@@ -91,7 +90,7 @@ metadata:
 		fmt.Println(err)
 		return "ERROR: Can not Unmarshall YAML Please Check the YAML syntax"
 	}
-	fmt.Println(v1ClusterRole)
+//	fmt.Println(v1ClusterRole)
 
 	if action == "create" {
 //		roleOut, err := clntset.RbacV1().Roles(namespace).Create(v1ClusterRole)
@@ -151,7 +150,7 @@ func MangeClusterRolePOSTHandler(w http.ResponseWriter, r *http.Request) {
 	name = strings.TrimSpace(name)
 	roles := r.FormValue("rule")
 	roles = strings.TrimSpace(roles)
-	fmt.Println(name,  roles, action)
+//	fmt.Println(name,  roles, action)
 	ManagePage.UserName = userName
 	ManagePage.Action = r.URL.Query().Get("action")
 	if !utility.IsEmpty(userName) {
