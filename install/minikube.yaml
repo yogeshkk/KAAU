@@ -21,11 +21,7 @@ spec:
         app: KAAU
     spec:
       containers:
-      - args:
-        - -c
-        - while true; do echo hello; sleep 10;done
-        command:
-        - /bin/bash
+      - command:
         image: yogeshkunjir/kaau:0.0.0.2
         imagePullPolicy: IfNotPresent
         name: kaau
