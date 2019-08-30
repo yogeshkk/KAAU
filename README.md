@@ -62,11 +62,14 @@ Read bit about RBAC
 https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0
 
 
+Install KAAU
+https://github.com/yogeshkk/KAAU/blob/master/Doc/install.md
+
+
 Status of Project.
 All modules are functional.
 
-
-NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use (though you can use in minikube like me). You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
+NOTE:- You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
 
 Twitter https://twitter.com/yogeshkunjir
 LinkedIn https://www.linkedin.com/in/yogeshkunjir/
