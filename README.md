@@ -23,7 +23,7 @@ Authorization
 
 Q3) Hold on you missed User account in which are part of Authentication.
 
-Ans: Good catch. User accound are not manage by kuberntes and I am using an API call to Kubernetes to manage the above.
+Ans: Good catch. User accounts are not managed by Kubernetes and I am using an API call to Kubernetes to manage the above.
 
 ```
 Normal users are assumed to be managed by an outside, independent service. An admin distributing private keys, a user store like Keystone or Google Accounts, even a file with a list of usernames and passwords. In this regard, Kubernetes does not have objects which represent normal user accounts. Normal users cannot be added to a cluster through an API call.
@@ -33,7 +33,9 @@ Normal users are assumed to be managed by an outside, independent service. An ad
 
 Q4) Ok. But I have Kubectl to do all the above tasks and more then why so much effort if no one going to use it.
 
-Ans: So cruel but it is ok if this go in git graveyard. I was loved kubernetes and learning the Go language so I thought I could do something also I use kubernetes every day. When your users and roles grow it is painfull to find which account entitles which role via which role binding. So a simple UI can be helpful. It is ok if no one uses it will be in opensource so another brillance developer can see how easy to develop around kubernetes.
+Ans: So cruel, But it is ok if this goes in git graveyard. I loved kubernetes and was learning the Go language so I thought I could create something in kubernetes.
+
+I use kubernetes every day all of using kubectl, But when your users and roles grow a lot it is painfull to find which account entitles which role via which role binding. So a simple UI can be helpful. It is ok if no one uses it will be in opensource so another brillance developer can see how easy to develop around kubernetes and make something awesome out of it. 
 
 Q5) You are learning Go Language. Is that why code is so awful?
 
@@ -41,7 +43,7 @@ Ans: Yes. Not only Golan but HTML and CSS also. I know how to write a code still
 
 Q6) That's great. how I can test it.
 
-Ans: You can check in the install section. you can compile the binary or download them from the release section. I will be releasing the docker image soon.
+Ans: You can check in the install section. you can compile the binary or download them from the release section. Best way to install in minikube. I have provided minikube.yaml in install folder/
 
 
 Q7) Imagine if I like a project. Then how I can contribute.
@@ -61,7 +63,7 @@ https://medium.com/@yogeshkunjir/kubernetes-has-your-r-back-5b4c983be0
 
 
 Status of Project.
-All module are functional.
+All modules are functional.
 
 
 NOTE:- I am not(yet) a GO or HTML/CSS Developer the code is written by me as an amateur code so it will be buggy and not yet ready to use (though you can use in minikube like me). You can browse code and if like idea provides star for encouragement or provide feedback to me one below social networks. 
