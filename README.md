@@ -1,6 +1,42 @@
 ![kaau](web/images/logo.png)
 
 # Project KAAU.
+Kubernetes Authorization Authentication Utility
+
+Login Screen
+![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
+
+Home Page
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Home_Page.png)
+
+
+Service Account
+![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Service_Account.png)
+
+
+Role Page
+![Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Roles.png)
+
+Create Role Page
+![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_role.png)
+
+Creating Role Page
+![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/creating_role.png)
+
+Role Created notification
+![Role Created notification](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_created.png)
+
+Delete role Confirmation.
+![Delete role Confirmation](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Delete_role_confirmation.png) 
+
+Delete role
+![delete Role](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_deteled.png) 
+ 
+Role Binding
+![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
+
+Create Role Binding
+![Role Binding](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_Role_binding.png)
 
 NAQ(Nobody Asked Questions)
 
@@ -80,39 +116,4 @@ NOTE:- You can browse code and if like idea provides star for encouragement or p
 Twitter https://twitter.com/yogeshkunjir
 LinkedIn https://www.linkedin.com/in/yogeshkunjir/
 
-Login Screen
 
-![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
-
-Home Page
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Home_Page.png)
-
-
-Service Account
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Service_Account.png)
-
-
-Role Page
-![Role Page(https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Roles.png)
-
-Create Role Page
-![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_role.png)
-
-Creating Role Page
-![Create Role Page](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/creating_role.png)
-
-Role Created notification
-![Role Created notification](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_created.png)
-
-Delete role Confirmation.
-![Delete role Confirmation](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Delete_role_confirmation.png) 
-
-Delete role
-![delete Role](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_deteled.png) 
- 
-Role Binding
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
-
-
-Role Binding
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
