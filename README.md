@@ -32,12 +32,6 @@ Delete role Confirmation.
 Delete role
 ![delete Role](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_deteled.png) 
  
-Role Binding
-![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
-
-Create Role Binding
-![Role Binding](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_Role_binding.png)
-
 NAQ(Nobody Asked Questions)
 
 Q1) What is KAAU?
@@ -93,6 +87,14 @@ Ans: As of now, all modules are working. The pending part is to generalize code,
 Q9) Last thing. What a great logo.
 
 Ans: Thanks. It is "Crow the detective" made by my wife. She is not much on social media. I will convey your message. 
+
+ 
+ 
+Role Binding
+![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
+
+Create Role Binding
+![Role Binding](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_Role_binding.png)
 
 
 
