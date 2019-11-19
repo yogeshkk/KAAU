@@ -64,12 +64,11 @@ Ans: Thanks. It is "Crow the detective" made by my wife. She is not much on soci
 Login Screen
 ![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
 
-Home Page
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Home_Page.png)
+Role Binding
+![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
 
-
-Service Account
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Service_Account.png)
+Create Role Binding
+![Role Binding](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_Role_binding.png)
 
 
 Role Page
@@ -93,11 +92,6 @@ Delete role
 
  
  
-Role Binding
-![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
-
-Create Role Binding
-![Role Binding](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_Role_binding.png)
 
 
 
