@@ -60,16 +60,11 @@ Q9) Last thing. What a great logo.
 Ans: Thanks. It is "Crow the detective" made by my wife. She is not much on social media. I will convey your message. 
 
 
-
 Login Screen
 ![Login page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/login_page.png)
 
-Home Page
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Home_Page.png)
-
-
-Service Account
-![Home Page](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Service_Account.png)
+Role Binding
+![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
 
 
 Role Page
@@ -90,11 +85,6 @@ Delete role Confirmation.
 Delete role
 ![delete Role](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/role_deteled.png) 
  
-
- 
- 
-Role Binding
-![Role Binding](https://raw.githubusercontent.com/yogeshkk/KAAU/master/Doc/screens/Role_Binding.png)
 
 Create Role Binding
 ![Role Binding](https://github.com/yogeshkk/KAAU/blob/master/Doc/screens/Create_Role_binding.png)
